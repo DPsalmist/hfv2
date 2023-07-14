@@ -23,7 +23,7 @@ from django.views.generic import TemplateView
 # from rest_framework.schemas import get_schema_view
 # from rest_framework.documentation import include_docs_urls
 
-urlpatterns = [
+urlpatterns = [s
     path("admin/", admin.site.urls),
     path('api/v2/accounts/', include('accounts.urls')),
     path('api/v2/assets/', include('asset.urls')),
@@ -37,15 +37,6 @@ urlpatterns = [
     path('api/v2/api-auth/', include('rest_framework.urls')),
     path('api/v2/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/v2/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
-
-    # fcm template
-    path("firebase-messaging-sw.js",
-        TemplateView.as_view(template_name="firebase-messaging-sw.js",content_type="application/javascript",
-        ),
-        name="firebase-messaging-sw.js"
-    ),
-
-
 
     #path('swagger-docs/', schema_view),
     #path('docs/', include_docs_urls(title='HFV2 APIs')),
